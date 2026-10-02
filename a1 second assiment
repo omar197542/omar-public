@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMmQpj15wOiBhZiwyKgTq7k",
+      "authorship_tag": "ABX9TyMcBzEeVQ4nyji0rgLl4+b0",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -28,7 +28,7 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 3,
+      "execution_count": null,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/"
@@ -81,7 +81,7 @@
         "id": "Dpl85R5XfhEK",
         "outputId": "0ac620f9-7dc6-4403-e8d2-6d363871bda5"
       },
-      "execution_count": 8,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -113,7 +113,7 @@
         "id": "P28HeMh4jTjk",
         "outputId": "26558286-014b-4903-ed97-f8cbe50fc3f4"
       },
-      "execution_count": 9,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -142,7 +142,7 @@
         "id": "GFsXGv4f0dwg",
         "outputId": "53335ff7-77f2-4421-d97b-9ac95139fd2d"
       },
-      "execution_count": 11,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "error",
@@ -150,6 +150,70 @@
           "evalue": "invalid syntax. Perhaps you forgot a comma? (295800126.py, line 3)",
           "traceback": [
             "\u001b[0;36m  File \u001b[0;32m\"/tmp/ipykernel_5061/295800126.py\"\u001b[0;36m, line \u001b[0;32m3\u001b[0m\n\u001b[0;31m    pairs = [(\"85 , \"ﺳﺎرة), (\"77 , \"أﺣﻤﺪ)]\u001b[0m\n\u001b[0m              ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax. Perhaps you forgot a comma?\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "student = (92.5 ,21 , \"ﻟﯿﻠﻰ\")\n",
+        "score, age, name = student\n",
+        "print(name, age, score)\n",
+        "pairs = [(85 , \"ﺳﺎرة\"), (77 , \"أﺣﻤﺪ\")]\n",
+        "first_score, first_name = pairs[0]\n",
+        "assert name == \"ﻟﯿﻠﻰ\" and age == 21 and score == 92.5,\" tuple عدد العناصر ال =عدد متغيرين \"\n",
+        "assert first_name == \"ﺳﺎرة\" and first_score == 85\n",
+        "print(\"A4: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "id": "2vEycZop67iU",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "3e9e254a-7e5c-4669-8ce7-56ed19fbae86"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ﻟﯿﻠﻰ 21 92.5\n",
+            "A4: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "prices_a = [10, 20, 30]\n",
+        "prices_b = prices_a.copy()\n",
+        "prices_b.append(40)\n",
+        "print(prices_a)\n",
+        "print(prices_b)\n",
+        "\n",
+        "assert prices_a == [10, 20, 30]\n",
+        "assert prices_b == [10, 20, 30, 40]\n",
+        "print(\"A5: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gti9kz8K-h7i",
+        "outputId": "1573cd02-501e-48ba-ba87-b27d86f57eeb"
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30]\n",
+            "[10, 20, 30, 40]\n",
+            "A5: ﻣﻤﺘﺎز\n"
           ]
         }
       ]
