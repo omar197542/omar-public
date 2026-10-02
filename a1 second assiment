@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMbqXhU1IMcxf0mfOsoyGMO",
+      "authorship_tag": "ABX9TyMmQpj15wOiBhZiwyKgTq7k",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -56,9 +56,102 @@
         "cart.pop()\n",
         "cart.sort()\n",
         "print(cart, len(cart))\n",
+        "\n",
+        "\n",
+        "\n",
         "assert cart == [\"Latte\", \"Water\"]\n",
         "assert len(cart) == 2\n",
         "print(\"A1: ﻣﻤﺘﺎز\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers = [4, 8, 4, 2, 8, 9, 2, 1, 9, 9]\n",
+        "unique = list(set(numbers))\n",
+        "print(unique)\n",
+        "unique.sort()\n",
+        "assert sorted(unique) == [1, 2, 4, 8, 9]\n",
+        "print(\"A2: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Dpl85R5XfhEK",
+        "outputId": "0ac620f9-7dc6-4403-e8d2-6d363871bda5"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[1, 2, 4, 8, 9]\n",
+            "A2: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "grades = {\"math\": 88, \"english\": 76}\n",
+        "grades[\"math\"] = 92\n",
+        "grades[\"physics\"] = 79\n",
+        "del grades[\"english\"]\n",
+        "best = max(grades.values())\n",
+        "print(grades, best)\n",
+        "assert grades == {\"math\": 92, \"physics\": 79}\n",
+        "assert best == 92\n",
+        "print(\"A3: ﻣﻤﺘﺎز\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "P28HeMh4jTjk",
+        "outputId": "26558286-014b-4903-ed97-f8cbe50fc3f4"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'math': 92, 'physics': 79} 92\n",
+            "A3: ﻣﻤﺘﺎز\n",
+            "{'math': 92, 'physics': 79} 92\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "student = (92.5 ,21 , \"ﻟﯿﻠﻰ\")\n",
+        "print(name, age, score)\n",
+        "pairs = [(85 , \"ﺳﺎرة\"), (77 , \"أﺣﻤﺪ\")]\n",
+        "first_name, first_score = pairs[0]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 106
+        },
+        "id": "GFsXGv4f0dwg",
+        "outputId": "53335ff7-77f2-4421-d97b-9ac95139fd2d"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "invalid syntax. Perhaps you forgot a comma? (295800126.py, line 3)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"/tmp/ipykernel_5061/295800126.py\"\u001b[0;36m, line \u001b[0;32m3\u001b[0m\n\u001b[0;31m    pairs = [(\"85 , \"ﺳﺎرة), (\"77 , \"أﺣﻤﺪ)]\u001b[0m\n\u001b[0m              ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax. Perhaps you forgot a comma?\n"
+          ]
+        }
       ]
     }
   ]
