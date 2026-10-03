@@ -1,0 +1,109 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN8x3atPvOzp7JmnjEhIBCf",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/assiment%20of%20second%20lecture%20of%20all%20b%20questions%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 11,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "60PdeABOExXj",
+        "outputId": "d91824d3-f237-43ea-d02d-d1164d80fc41"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'date': '2026-09-25', 'item': 'food', 'amount_egp': 85.5, 'payment_method': 'cash', 'quantity': 1}\n",
+            "10\n",
+            "{'juice', 'oil', 'devices', 'food', 'pepsi', 'drink', 'clothes', 'electronics'}\n",
+            "[{'date': '2026-09-25', 'item': 'food', 'amount_egp': 85.5, 'payment_method': 'cash', 'quantity': 1}, {'date': '2026-09-25', 'item': 'drink', 'amount_egp': 40.0, 'payment_method': 'card', 'quantity': 2}, {'date': '2026-09-26', 'item': 'clothes', 'amount_egp': 120.0, 'payment_method': 'cash', 'quantity': 3}, {'date': '2026-09-27', 'item': 'food', 'amount_egp': 70.0, 'payment_method': 'cash', 'quantity': 4}, {'date': '2026-09-28', 'item': 'oil', 'amount_egp': 45.5, 'payment_method': 'card', 'quantity': 5}, {'date': '2026-09-29', 'item': 'electronics', 'amount_egp': 1050.0, 'payment_method': 'cash', 'quantity': 6}, {'date': '2026-09-30', 'item': 'food', 'amount_egp': 90.0, 'payment_method': 'cash', 'quantity': 7}, {'date': '2026-09-31', 'item': 'juice', 'amount_egp': 60.0, 'payment_method': 'card', 'quantity': 8}, {'date': '2026-09-32', 'item': 'devices', 'amount_egp': 160.0, 'payment_method': 'cash', 'quantity': 9}, {'date': '2026-09-32', 'item': 'pepsi', 'amount_egp': 20.0, 'payment_method': 'cash', 'quantity': 10}, {'date': '03-10-2026', 'item': 'books', 'price': 150.0, 'payment_method': 'cash', 'quantity': 2}]\n",
+            "True\n",
+            "None\n",
+            "2026-09-25\n",
+            "food\n",
+            "85.5\n",
+            "cash\n",
+            "1\n",
+            "[{'date': '2026-09-25', 'item': 'food', 'amount_egp': 85.5, 'payment_method': 'cash', 'quantity': 1}, {'date': '2026-09-25', 'item': 'drink', 'amount_egp': 40.0, 'payment_method': 'card', 'quantity': 2}, {'date': '2026-09-26', 'item': 'clothes', 'amount_egp': 120.0, 'payment_method': 'cash', 'quantity': 3}]\n"
+          ]
+        }
+      ],
+      "source": [
+        "records = [\n",
+        "    {\"date\": \"2026-09-25\", \"item\": \"food\",  \"amount_egp\": 85.5, \"payment_method\": \"cash\",  \"quantity\": 1},\n",
+        "    {\"date\": \"2026-09-25\", \"item\": \"drink\", \"amount_egp\": 40.0, \"payment_method\": \"card\",  \"quantity\": 2},\n",
+        "    {\"date\": \"2026-09-26\", \"item\": \"clothes\",  \"amount_egp\": 120.0, \"payment_method\": \"cash\", \"quantity\": 3},\n",
+        "    {\"date\": \"2026-09-27\", \"item\": \"food\",  \"amount_egp\": 70.0, \"payment_method\": \"cash\",  \"quantity\": 4},\n",
+        "    {\"date\": \"2026-09-28\", \"item\": \"oil\", \"amount_egp\": 45.5, \"payment_method\": \"card\",  \"quantity\": 5},\n",
+        "    {\"date\": \"2026-09-29\", \"item\": \"electronics\",  \"amount_egp\": 1050.0, \"payment_method\": \"cash\", \"quantity\": 6},\n",
+        "    {\"date\": \"2026-09-30\", \"item\": \"food\",  \"amount_egp\": 90.0, \"payment_method\": \"cash\",  \"quantity\": 7},\n",
+        "    {\"date\": \"2026-09-31\", \"item\": \"juice\", \"amount_egp\": 60.0, \"payment_method\": \"card\",  \"quantity\": 8},\n",
+        "    {\"date\": \"2026-09-32\", \"item\": \"devices\",  \"amount_egp\": 160.0, \"payment_method\": \"cash\", \"quantity\": 9},\n",
+        "    {\"date\": \"2026-09-32\", \"item\": \"pepsi\",  \"amount_egp\": 20.0, \"payment_method\": \"cash\", \"quantity\": 10},\n",
+        "]\n",
+        "\n",
+        "fields = (\"date\", \"item\", \"price\", \"payment_method\", \"quantity\")\n",
+        "items = set(r[\"item\"] for r in records)\n",
+        "print(records[0])\n",
+        "print(len(records))\n",
+        "print(items)\n",
+        "\n",
+        "\n",
+        "\n",
+        "records.append({\n",
+        "    \"date\":\"03-10-2026\",\"item\":\"books\",\"price\":150.0, \"payment_method\": \"cash\", \"quantity\": 2}),\n",
+        "print(records)\n",
+        "\n",
+        "print(\"food\" in items)\n",
+        "print (records[0].get(\"tips\"))\n",
+        "date,item,price,payment_method,quantity = records[0].values()\n",
+        "print(date)\n",
+        "print(item)\n",
+        "print(price)\n",
+        "print(payment_method)\n",
+        "print(quantity)\n",
+        "\n",
+        "print(records[:3])\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n"
+      ],
+      "metadata": {
+        "id": "XRB95U5GJByp"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
