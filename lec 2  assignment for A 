@@ -1,0 +1,259 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOyi8pEkynnGOe0QeCeQO8u",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec%202%20%20assignment%20for%20A%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 18,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VcvKZDqQK83H",
+        "outputId": "ec5a152c-b940-45ac-9295-95615ee141c7"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "اﻟﺪرﺟﺔ 95 → A\n",
+            "A1: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ],
+      "source": [
+        "#A1\n",
+        "grade=95\n",
+        "if grade>=90:\n",
+        "    level = \"A\"\n",
+        "elif grade>=80:\n",
+        "    level = \"B\"\n",
+        "elif grade>=70:\n",
+        "    level = \"C\"\n",
+        "elif grade>=60:\n",
+        "    level = \"D\"\n",
+        "else:\n",
+        "    level = \"F\"\n",
+        "print(f\"اﻟﺪرﺟﺔ {grade} → {level}\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "assert level in (\"A\", \"B\", \"C\", \"D\", \"F\")\n",
+        "assert not (grade >= 90 and level != \"A\"), \">=90: A\"\n",
+        "assert not (80 <= grade < 90 and level != \"B\"), \"80-89: B\"\n",
+        "assert not (70 <= grade < 80 and level != \"C\"), \"70-79: C\"\n",
+        "assert not (60 <= grade < 70 and level != \"D\"), \"60-69: D\"\n",
+        "assert not (grade < 60 and level != \"F\"), \"<60: F\"\n",
+        "print(\"A1: ﻣﻤﺘﺎز\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "for n in range(1, 16):\n",
+        "    if n % 3==0 and n % 5 ==0:\n",
+        "      print (\"python AI\")\n",
+        "    elif n % 3 ==0:\n",
+        "      print (\"python\")\n",
+        "    elif n % 5 ==0:\n",
+        "      print (\"AI\")\n",
+        "    else:\n",
+        "      print (n)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wjR9S3PSQoqh",
+        "outputId": "99970587-1b69-425d-cd44-bcc5f8430497"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "python\n",
+            "4\n",
+            "AI\n",
+            "python\n",
+            "7\n",
+            "8\n",
+            "python\n",
+            "AI\n",
+            "11\n",
+            "python\n",
+            "13\n",
+            "14\n",
+            "python AI\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "target = random.randint(1, 50)\n",
+        "tries = 0\n",
+        "guess = int(input(\"50 ﺧﻤﻦ رﻗﻢ ﻣﻦ 1 ﻟـ: \"))\n",
+        "while guess!=target :\n",
+        "  tries+=1\n",
+        "  if guess >target:\n",
+        "    print (\"اكبر\")\n",
+        "  else:\n",
+        "    print (\"اصغر\")\n",
+        "  guess =int(input(\"خمن مرة اخرى:\"))\n",
+        "  tries +=1\n",
+        "  print (f\"عدد المحاولات :{tries}\" )\n",
+        "  assert tries >= 1, \"اﻟﻌﺐ اﻟﻠﻌﺒﺔ اﻷول — tries ﻟﺴﮫ ﺻﻔﺮ\"\n",
+        "  print(\"A3: ﻣﻤﺘﺎز\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "igvSPYEtSvUJ",
+        "outputId": "be2f1ba8-1e4e-4c72-87a7-0f0642d4d4cb"
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "50 ﺧﻤﻦ رﻗﻢ ﻣﻦ 1 ﻟـ: 35\n",
+            "اصغر\n",
+            "خمن مرة اخرى:38\n",
+            "عدد المحاولات :2\n",
+            "A3: ﻣﻤﺘﺎز\n",
+            "اصغر\n",
+            "خمن مرة اخرى:40\n",
+            "عدد المحاولات :4\n",
+            "A3: ﻣﻤﺘﺎز\n",
+            "اصغر\n",
+            "خمن مرة اخرى:45\n",
+            "عدد المحاولات :6\n",
+            "A3: ﻣﻤﺘﺎز\n",
+            "اكبر\n",
+            "خمن مرة اخرى:43\n",
+            "عدد المحاولات :8\n",
+            "A3: ﻣﻤﺘﺎز\n",
+            "اصغر\n",
+            "خمن مرة اخرى:44\n",
+            "عدد المحاولات :10\n",
+            "A3: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "scores = [82, 90, 76, 88, 95]\n",
+        "total = 0\n",
+        "count = 0\n",
+        "biggest = scores[0]\n",
+        "for score in scores:\n",
+        "  total += score\n",
+        "  count +=1\n",
+        "  biggest = max(biggest,score)\n",
+        "  avarge = total / count\n",
+        "  print(total, round(avarge,2),biggest)\n",
+        "\n",
+        "assert total == 431, \"total = ﻣﺠﻤﻮع اﻟﺨﻤﺲ درﺟﺎت\"\n",
+        "assert count == 5, \"count ﺑﯿﺰود ﻣﺮة ﻓﻲ ﻛﻞ دور\"\n",
+        "assert biggest == 95, \"biggest ﯾﺘﻐﯿﺮ ﺑﺲ ﻟﻮ ﻟﻘﯿﻨﺎ أﻛﺒﺮ\"\n",
+        "assert abs(avarge - 86.2) < 0.001, \"average = total / count\"\n",
+        "print(\"A4: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ygvw22rSn9aQ",
+        "outputId": "d28da1db-fe9f-4c64-edde-cef401c151d6"
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "82 82.0 82\n",
+            "172 86.0 90\n",
+            "248 82.67 90\n",
+            "336 84.0 90\n",
+            "431 86.2 95\n",
+            "A4: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "text = \"python is fun\"\n",
+        "vowels = \"aeiou\"\n",
+        "vowel_count = 0\n",
+        "words = text.split()\n",
+        "word_count = 0\n",
+        "for char in text:\n",
+        "    if char in vowels:\n",
+        "       vowel_count += 1\n",
+        "for word in words:\n",
+        "  word_count += 1\n",
+        "print(vowel_count, word_count)\n",
+        "\n",
+        "assert vowel_count == 3, \"3 = اﻟﺤﺮوف اﻟﻤﺪوﻧﺔ ﻓﻲ اﻟﻨﺺ\"\n",
+        "assert word_count == 3, \"3 = اﻟﻜﻠﻤﺎت\"\n",
+        "print(\"A5: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "xteTKI8G9_qQ",
+        "outputId": "2655e727-6ee1-4dbd-ae6e-f22d698d45ce"
+      },
+      "execution_count": 39,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3 3\n",
+            "A5: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
