@@ -1,0 +1,192 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPmhcrmgPIqdnyOs+ANlJ/6",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec_3%20assignment%20of%20B\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "while True:\n",
+        "    print(\"1) ﻋﺮض اﻟﻜﻞ\")\n",
+        "\n",
+        "    print(\"2) إﺿﺎﻓﺔ ﺳﺠﻞ\")\n",
+        "    print(\"3) ﺗﺼﻔﯿﺔ ﺣﺴﺐ اﻟﺘﺼﻨﯿﻒ\")\n",
+        "    print(\"4) ﻣﻠﺨﺺ\")\n",
+        "    print(\"5) ﺑﺤﺚ ﺑﺎﻟﻜﻠﻤﺔ\")\n",
+        "    print(\"6) ﺧﺮوج\")\n",
+        "    choice = input(\"اﺧﺘﺎر: \")\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "    if choice == \"1\":\n",
+        "        if not records:\n",
+        "            print(\"لا توجد سجلات.\")\n",
+        "        else:\n",
+        "            for r in records:\n",
+        "                print(r)\n",
+        "\n",
+        "\n",
+        "    elif choice == \"2\":\n",
+        "        name = input(\"أدخل اسم السجل: \")\n",
+        "        category = input(\"أدخل التصنيف: \")\n",
+        "\n",
+        "        try:\n",
+        "            amount = float(input(\"أدخل المبلغ: \"))\n",
+        "        except ValueError:\n",
+        "            print(\"خطأ: المبلغ يجب أن يكون رقمًا.\")\n",
+        "\n",
+        "\n",
+        "        record = {\n",
+        "            \"name\": name,\n",
+        "            \"category\": category,\n",
+        "            \"amount\": amount\n",
+        "        }\n",
+        "\n",
+        "        records.append(record)\n",
+        "        print(\"تمت إضافة السجل بنجاح.\")\n",
+        "\n",
+        "\n",
+        "    elif choice == \"3\":\n",
+        "        category = input(\"أدخل التصنيف المطلوب: \")\n",
+        "\n",
+        "        found = False\n",
+        "\n",
+        "        for r in records:\n",
+        "            if r[\"category\"].lower() == category.lower():\n",
+        "                print(r)\n",
+        "                found = True\n",
+        "\n",
+        "        if not found:\n",
+        "            print(\"لا توجد سجلات بهذا التصنيف.\")\n",
+        "\n",
+        "\n",
+        "    elif choice == \"4\":\n",
+        "        if not records:\n",
+        "            print(\"لا توجد سجلات لعمل ملخص.\")\n",
+        "        else:\n",
+        "            total = sum(r[\"amount\"] for r in records)\n",
+        "            count = len(records)\n",
+        "            biggest = max(records, key=lambda r: r[\"amount\"])\n",
+        "            smallest = min(records, key=lambda r: r[\"amount\"])\n",
+        "\n",
+        "            print(\"\\n----- الملخص -----\")\n",
+        "            print(\"إجمالي المبالغ:\", total)\n",
+        "            print(\"عدد السجلات:\", count)\n",
+        "\n",
+        "            print(\"أكبر مبلغ:\")\n",
+        "            print(biggest)\n",
+        "\n",
+        "            print(\"أصغر مبلغ:\")\n",
+        "            print(smallest)\n",
+        "\n",
+        "\n",
+        "    elif choice == \"5\":\n",
+        "        keyword = input(\"أدخل كلمة البحث: \").lower()\n",
+        "\n",
+        "        found = False\n",
+        "\n",
+        "        for r in records:\n",
+        "\n",
+        "            for value in r.values():\n",
+        "                if keyword in str(value).lower():\n",
+        "                    print(r)\n",
+        "                    found = True\n",
+        "                    break\n",
+        "\n",
+        "        if not found:\n",
+        "            print(\"لم يتم العثور على نتائج.\")\n",
+        "\n",
+        "\n",
+        "    elif choice == \"6\":\n",
+        "        print(\"مع السلامة!\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "    else:\n",
+        "        print(\"اختيار غير صحيح - اختر رقمًا من 1 إلى 6.\")\n",
+        "        assert isinstance(records, list), \"records = list\"\n",
+        "        assert len(records) >= 10, \"10 ﺳﺠﻼت ﻋﻠﻰ اﻷﻗﻞ\"\n",
+        "        assert all(isinstance(r, dict) for r in records), \"ﻛﻞ ﺳﺠﻞ dict\"\n",
+        "        assert all(\"amount_egp\" in r for r in records), \"ﺣﻘﻞ ﻓﺎﺿﻞ\"\n",
+        "        assert all(\"category\" in r for r in records), \"ﺣﻘﻞ ﻓﺎﺿﻞ\"\n",
+        "        print(\"Part B: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 506
+        },
+        "id": "GOR7psgeYe3L",
+        "outputId": "5f37d3f7-bd97-45d1-dd37-0d062fa4e268"
+      },
+      "execution_count": 54,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "1) ﻋﺮض اﻟﻜﻞ\n",
+            "2) إﺿﺎﻓﺔ ﺳﺠﻞ\n",
+            "3) ﺗﺼﻔﯿﺔ ﺣﺴﺐ اﻟﺘﺼﻨﯿﻒ\n",
+            "4) ﻣﻠﺨﺺ\n",
+            "5) ﺑﺤﺚ ﺑﺎﻟﻜﻠﻤﺔ\n",
+            "6) ﺧﺮوج\n",
+            "اﺧﺘﺎر: 6\n",
+            "مع السلامة!\n",
+            "1) ﻋﺮض اﻟﻜﻞ\n",
+            "2) إﺿﺎﻓﺔ ﺳﺠﻞ\n",
+            "3) ﺗﺼﻔﯿﺔ ﺣﺴﺐ اﻟﺘﺼﻨﯿﻒ\n",
+            "4) ﻣﻠﺨﺺ\n",
+            "5) ﺑﺤﺚ ﺑﺎﻟﻜﻠﻤﺔ\n",
+            "6) ﺧﺮوج\n",
+            "اﺧﺘﺎر: 1\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'records' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_1116/2301817205.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m     13\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     14\u001b[0m     \u001b[0;32mif\u001b[0m \u001b[0mchoice\u001b[0m \u001b[0;34m==\u001b[0m \u001b[0;34m\"1\"\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 15\u001b[0;31m         \u001b[0;32mif\u001b[0m \u001b[0;32mnot\u001b[0m \u001b[0mrecords\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     16\u001b[0m             \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"لا توجد سجلات.\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     17\u001b[0m         \u001b[0;32melse\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'records' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "JgfuInR4wHzg"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
