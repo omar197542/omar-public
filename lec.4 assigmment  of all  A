@@ -1,0 +1,254 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOq6bznk5Ka2KyUqNGnbJl6",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec.4%20assigmment%20%20of%20all%20%20A\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 10,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "nyKOSDVgsT5T",
+        "outputId": "296d5e27-b2f6-4c38-cc13-b438e3bfe6cc"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "True 49\n",
+            "A1: تمام\n"
+          ]
+        }
+      ],
+      "source": [
+        "def is_even(n):\n",
+        "    return n % 2 == 0\n",
+        "\n",
+        "def square(n):\n",
+        "    return n * n\n",
+        "\n",
+        "def average(values):\n",
+        "    return sum(values) / len(values)\n",
+        "\n",
+        "print(is_even(4), square(7))\n",
+        "\n",
+        "\n",
+        "\n",
+        "assert is_even(4) == True and is_even(7) == False, \"is_even\"\n",
+        "assert square(7) == 49, \"square\"\n",
+        "assert abs(average([80, 90, 76]) - 82) < 0.01, \"average\"\n",
+        "\n",
+        "print(\"A1: تمام\")\n",
+        "\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def greet(name, greeting=\"Ahlan\"):\n",
+        "    return greeting + \", \" + name\n",
+        "\n",
+        "print(greet(\"Sara\"))\n",
+        "\n",
+        "assert greet(\"Sara\") == \"Ahlan, Sara\"\n",
+        "assert greet(\"Omar\", \"Marhaba\") == \"Marhaba, Omar\"\n",
+        "assert greet(name=\"Ali\", greeting=\"Hi\") == \"Hi, Ali\"\n",
+        "\n",
+        "print(\"A2 ممتاز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "h10XtEr8LXuO",
+        "outputId": "d2b27a51-4c17-49c5-a29f-576856ad8567"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Ahlan, Sara\n",
+            "A2 ممتاز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def min_max(values):\n",
+        "\n",
+        "    low = min(values)\n",
+        "    high = max(values)\n",
+        "    return low, high\n",
+        "\n",
+        "\n",
+        "low, high = min_max([82, 90, 76])\n",
+        "print(low, high)\n",
+        "\n",
+        "\n",
+        "\n",
+        "assert min_max([82, 90, 76]) == (76, 90), \"الأصغر والأكبر\"\n",
+        "assert min_max([5]) == (5, 5), \"عنصر واحد\"\n",
+        "assert min_max([-3, -9, 2]) == (-9, 2), \"سالب وموجب\"\n",
+        "\n",
+        "print(\"A3: ممتاز\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YBeYVQH9LeUZ",
+        "outputId": "02f7cb9b-86cb-40dd-a64f-be465efebea1"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "76 90\n",
+            "A3: ممتاز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "lines = [\"date,category\", \"2026-10-01,food\", \"2026-10-02,drink\"]\n",
+        "path = \"my_lines.txt\"\n",
+        "\n",
+        "content = \"\"\n",
+        "\n",
+        "try:\n",
+        "\n",
+        "    with open(path, \"w\", encoding=\"utf-8\") as file:\n",
+        "        for line in lines:\n",
+        "            file.write(line + \"\\n\")\n",
+        "\n",
+        "\n",
+        "    with open(path, \"r\", encoding=\"utf-8\") as file:\n",
+        "        content = file.read()\n",
+        "\n",
+        "except FileNotFoundError:\n",
+        "\n",
+        "    print(\"الملف غير موجود\")\n",
+        "\n",
+        "print(content)\n",
+        "\n",
+        "\n",
+        "assert \"2026-10-01,food\" in content, \"السطر الأول لم يرجع\"\n",
+        "assert \"2026-10-02,drink\" in content, \"كل السطور لم ترجع\"\n",
+        "\n",
+        "print(\"A4: ممتاز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0ufQ12soOWPH",
+        "outputId": "1a901505-8250-4f1c-f225-14a2d4406b7a"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "date,category\n",
+            "2026-10-01,food\n",
+            "2026-10-02,drink\n",
+            "\n",
+            "A4: ممتاز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "print((85 + 90 + 76) / 3)\n",
+        "print((100 + 55 + 60) / 3)\n",
+        "print((40 + 88 + 92) / 3)\n",
+        "\n",
+        "\n",
+        "\n",
+        "def average3(a, b, c):\n",
+        "    return (a + b + c) / 3\n",
+        "\n",
+        "\n",
+        "\n",
+        "print(average3(85, 90, 76))\n",
+        "print(average3(100, 55, 60))\n",
+        "print(average3(40, 88, 92))\n",
+        "\n",
+        "\n",
+        "\n",
+        "assert abs(average3(85, 90, 76) - 83.67) < 0.01, \"الدالة فشالة\"\n",
+        "\n",
+        "print(\"A5: ممتاز، الدالة شغالة!\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5-Ufy-wqQt92",
+        "outputId": "1f8cb556-6629-4c68-d7db-0d04a8f75545"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "83.66666666666667\n",
+            "71.66666666666667\n",
+            "73.33333333333333\n",
+            "A5: ممتاز، الدالة شغالة!\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "bUD7CimoSttm"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
