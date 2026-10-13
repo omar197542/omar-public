@@ -1,0 +1,103 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP97oFfvawmgGYoz9Vzu1aK",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec.4%20assignmment%20of%20C\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "aRAyyk8clHm3",
+        "outputId": "a772b67a-621d-4062-dde0-1437709ad78a"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Part C: Passed\n"
+          ]
+        }
+      ],
+      "source": [
+        "def delete_record(records, index):\n",
+        "    \"\"\"Delete the record at the given index and return it.\"\"\"\n",
+        "\n",
+        "    if index < 0 or index >= len(records):\n",
+        "        return None\n",
+        "\n",
+        "    return records.pop(index)\n",
+        "\n",
+        "\n",
+        "def update_record(records, index, field, value):\n",
+        "    \"\"\"Change one field of the record at index.\"\"\"\n",
+        "\n",
+        "    if index < 0 or index >= len(records):\n",
+        "        return None\n",
+        "\n",
+        "    records[index][field] = value\n",
+        "    return records[index]\n",
+        "\n",
+        "\n",
+        "sample = [\n",
+        "    {\n",
+        "        \"date\": \"2026-10-01\",\n",
+        "        \"category\": \"food\",\n",
+        "        \"amount_egp\": 85.5,\n",
+        "        \"payment_method\": \"cash\",\n",
+        "        \"quantity\": 1\n",
+        "    },\n",
+        "    {\n",
+        "        \"date\": \"2026-10-02\",\n",
+        "        \"category\": \"drink\",\n",
+        "        \"amount_egp\": 40.0,\n",
+        "        \"payment_method\": \"card\",\n",
+        "        \"quantity\": 2\n",
+        "    }\n",
+        "]\n",
+        "\n",
+        "t = sample.copy()\n",
+        "\n",
+        "\n",
+        "assert len(t) == 2, \"sample\"\n",
+        "\n",
+        "deleted = delete_record(t, 0)\n",
+        "\n",
+        "assert len(t) == 1, \"delete\"\n",
+        "assert deleted[\"category\"] == \"food\", \"return deleted\"\n",
+        "\n",
+        "update_record(t, 0, \"amount_egp\", 99.9)\n",
+        "\n",
+        "assert t[0][\"amount_egp\"] == 99.9, \"update\"\n",
+        "\n",
+        "print(\"Part C: Passed\")"
+      ]
+    }
+  ]
+}
