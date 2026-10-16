@@ -1,0 +1,304 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPm6qMEV2Yuer7WXm8bzhqK",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec.5%20assignment%20of%20all%20A%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iom9D2HgmXEZ",
+        "outputId": "656495a0-2e9d-473b-d37e-52d71d9b641d"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sara\n",
+            "83.66666666666667\n",
+            "A1: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ],
+      "source": [
+        "class Student:\n",
+        "    def __init__(self, name, grades):\n",
+        "        self.name = name\n",
+        "        self.grades = grades\n",
+        "\n",
+        "    def average(self):\n",
+        "        return sum(self.grades) / len(self.grades)\n",
+        "\n",
+        "\n",
+        "s = Student(\"Sara\", [85, 90, 76])\n",
+        "print(s.name)\n",
+        "print(s.average())\n",
+        "\n",
+        "assert s.name == \"Sara\", \"اﻻﺳﻢ اﺗﺨﺰن ﻋﻠﻰ اﻟﻜﺎﺋﻦ\"\n",
+        "assert abs(s.average() - 83.67) < 0.01, \"ﻣﺘﻮﺳﻂ ﺳﺎرة\"\n",
+        "t = Student(\"Omar\", [70, 80])\n",
+        "assert t.name == \"Omar\", \"ﻛﻞ ﻃﺎﻟﺐ ﻟﯿﮫ اﺳﻤﮫ\"\n",
+        "assert abs(t.average() - 75.0) < 0.01, \"ﻣﺘﻮﺳﻂ ﻋﻤﺮ\"\n",
+        "print(\"A1: ﻣﻤﺘﺎز\")\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "class BankAccount:\n",
+        "    def __init__(self, owner, balance=0):\n",
+        "\n",
+        "        self.owner = owner\n",
+        "        self.balance = balance\n",
+        "\n",
+        "    def deposit(self, amount):\n",
+        "\n",
+        "        if amount > 0:\n",
+        "            self.balance += amount\n",
+        "        else:\n",
+        "            print(\"Invalid deposit amount!\")\n",
+        "\n",
+        "    def withdraw(self, amount):\n",
+        "\n",
+        "        if amount > 0 and amount <= self.balance:\n",
+        "            self.balance -= amount\n",
+        "        else:\n",
+        "            print(\"Insufficient balance or invalid amount!\")\n",
+        "\n",
+        "\n",
+        "acc = BankAccount(\"Omar\", 100)\n",
+        "acc.deposit(50)\n",
+        "\n",
+        "\n",
+        "\n",
+        "acc = BankAccount(\"Omar\", 100)\n",
+        "acc.deposit(50)\n",
+        "assert acc.balance == 150, \"اﻹﯾﺪاع زود اﻟﺮﺻﯿﺪ\"\n",
+        "acc.withdraw(40)\n",
+        "assert acc.balance == 110, \"اﻟﺴﺤﺐ ﺧﺼﻢ\"\n",
+        "acc.withdraw(500)\n",
+        "assert acc.balance == 110, \"اﻟﺤﻤﺎﯾﺔ ﻣﻦ اﻟﺴﺤﺐ اﻟﺰاﯾﺪ\"\n",
+        "assert BankAccount(\"Sara\").balance == 0, \"اﻟﺮﺻﯿﺪ اﻻﻓﺘﺮاﺿﻲ ﺻﻔﺮ\"\n",
+        "print(\"A2: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FGZEPoSXoqPt",
+        "outputId": "988e28c7-9f51-4518-b7d2-6406d8f30643"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Insufficient balance or invalid amount!\n",
+            "A2: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Book:\n",
+        "    def __init__(self, title, pages):\n",
+        "        self.title = title\n",
+        "        self.pages = pages\n",
+        "\n",
+        "    def __str__(self):\n",
+        "        return f\"{self.title} - {self.pages} صفحة\"\n",
+        "\n",
+        "\n",
+        "b = Book(\"Python\", 350)\n",
+        "print(b)\n",
+        "\n",
+        "assert str(b) == \"Python - 350 صفحة\"\n",
+        "\n",
+        "b2 = Book(\"Pandas\", 500)\n",
+        "assert str(b2) == \"Pandas - 500 صفحة\"\n",
+        "\n",
+        "print(\"A3: ممتاز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Dya2Q-vKqtrf",
+        "outputId": "e7c5067d-d776-42f5-83aa-27ce3341b034"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Python - 350 صفحة\n",
+            "A3: ممتاز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "class Student:\n",
+        "    def __init__(self, name, grades):\n",
+        "        self.name = name\n",
+        "        self.grades = grades\n",
+        "\n",
+        "    def average(self):\n",
+        "        return sum(self.grades) / len(self.grades)\n",
+        "\n",
+        "\n",
+        "class Classroom:\n",
+        "    def __init__(self, room):\n",
+        "        # اسم القاعة + قائمة الطلاب\n",
+        "        self.room = room\n",
+        "        self.students = []\n",
+        "\n",
+        "    def add(self, student):\n",
+        "        # ضيف الطالب لقائمة الطلاب\n",
+        "        self.students.append(student)\n",
+        "\n",
+        "    def best(self):\n",
+        "        # رجّع الطالب الأعلى بمتوسط الدرجات\n",
+        "        if not self.students:\n",
+        "            return None\n",
+        "\n",
+        "        return max(self.students, key=lambda student: student.average())\n",
+        "\n",
+        "\n",
+        "# إنشاء قاعة وإضافة طالب\n",
+        "room = Classroom(\"A101\")\n",
+        "room.add(Student(\"Sara\", [85, 90, 76]))\n",
+        "\n",
+        "# التحقق الذاتي\n",
+        "assert room.room == \"A101\", \"اسم القاعة\"\n",
+        "assert len(room.students) == 1, \"عدد الطلاب\"\n",
+        "assert room.best().name == \"Sara\", \"الطالب الأعلى متوسطًا\"\n",
+        "\n",
+        "print(\"اسم القاعة:\", room.room)\n",
+        "print(\"عدد الطلاب:\", len(room.students))\n",
+        "print(\"أفضل طالب:\", room.best().name)\n",
+        "print(\"متوسط درجاته:\", room.best().average())\n",
+        "\n",
+        "\n",
+        "assert room.room == \"A101\", \"اﺳﻢ اﻟﻘﺎﻋﺔ\"\n",
+        "assert len(room.students) == 1, \"أول ﻃﺎﻟﺐ اﺗﻀﺎف\"\n",
+        "room.add(Student(\"Omar\", [95, 95]))\n",
+        "assert len(room.students) == 2, \"ﺗﺎﻧﻲ ﻃﺎﻟﺐ\"\n",
+        "assert room.best().name == \"Omar\", \"اﻷﻋﻠﻰ ﺑﻤﺘﻮﺳﻂ ﯾﻔﻮز\"\n",
+        "print(\"A4: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "u6J6hhhdCy9S",
+        "outputId": "27dd6370-3f59-4cca-ac99-db28dc1442e6"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "اسم القاعة: A101\n",
+            "عدد الطلاب: 1\n",
+            "أفضل طالب: Sara\n",
+            "متوسط درجاته: 83.66666666666667\n",
+            "A4: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Counter:\n",
+        "    def __init__(self):\n",
+        "        self.n = 0\n",
+        "\n",
+        "    def bump(self):\n",
+        "        self.n += 1\n",
+        "        return self.n\n",
+        "\n",
+        "\n",
+        "c1 = Counter()\n",
+        "c2 = Counter()\n",
+        "\n",
+        "print(c1.bump(), c1.bump(), c2.bump())\n",
+        "\n",
+        "answer = \"1 2 1\"\n",
+        "\n",
+        "assert answer == \"1 2 1\", f\"إجابتك: {answer}\"\n",
+        "\n",
+        "print(\"A5: ممتاز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IvhKB_j6EBR1",
+        "outputId": "3c0c74e6-af1f-4d16-e5e4-78b4f97507cb"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 2 1\n",
+            "A5: ممتاز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "M0rPHQklEiTq"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
