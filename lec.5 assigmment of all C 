@@ -1,0 +1,97 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNBxqpRDZ3EDxCa0S6pVEmF",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec.5%20assigmment%20of%20all%20C%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "odiwZ5WEP6hn",
+        "outputId": "6c5a8c78-c964-449a-e613-b59bd328d5fe"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Part C: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ],
+      "source": [
+        "from dataclasses import dataclass\n",
+        "\n",
+        "\n",
+        "@dataclass\n",
+        "class Record:\n",
+        "    date: str\n",
+        "    category: str\n",
+        "    amount_egp: float\n",
+        "    payment_method: str\n",
+        "    record_id: int\n",
+        "\n",
+        "\n",
+        "class Tracker:\n",
+        "    def __init__(self):\n",
+        "        self.records = []\n",
+        "\n",
+        "    def add(self, record):\n",
+        "        self.records.append(record)\n",
+        "\n",
+        "    def top_n(self, field, n):\n",
+        "        \"\"\"Return the n records with the biggest value of field.\"\"\"\n",
+        "        return sorted(\n",
+        "            self.records,\n",
+        "            key=lambda record: getattr(record, field),\n",
+        "            reverse=True\n",
+        "        )[:n]\n",
+        "\n",
+        "\n",
+        "# Test\n",
+        "sample = Tracker()\n",
+        "\n",
+        "sample.add(Record(\"2026-10-01\", \"food\", 85.5, \"cash\", 1))\n",
+        "sample.add(Record(\"2026-10-02\", \"drink\", 40.0, \"card\", 2))\n",
+        "sample.add(Record(\"2026-10-03\", \"bills\", 300.0, \"card\", 1))\n",
+        "\n",
+        "top = sample.top_n(\"amount_egp\", 2)\n",
+        "\n",
+        "assert len(top) == 2, \"top 2\"\n",
+        "assert top[0].amount_egp == 300.0, \"أكبر مبلغ\"\n",
+        "assert top[1].amount_egp == 85.5, \"المبلغ الثاني\"\n",
+        "\n",
+        "big = sample.top_n(\"amount_egp\", 99)\n",
+        "\n",
+        "assert big[0].amount_egp == 300.0, \"أكبر مبلغ من n\"\n",
+        "print(\"Part C: ﻣﻤﺘﺎز\")"
+      ]
+    }
+  ]
+}
