@@ -1,0 +1,233 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO8F+8HJC0aW66tHSV7Fcts",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec.6%20assignment%20of%20all%20A%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "9usQH-D8RItB",
+        "outputId": "2042ac28-71e0-4b86-ce8c-607d699b3875"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "A1: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ],
+      "source": [
+        "answers = {\n",
+        "    \"1\": \"قواعد\",\n",
+        "    \"2\": \"تعلّم\",\n",
+        "    \"3\": \"مش مناسب\",\n",
+        "    \"4\": \"تعلّم\",\n",
+        "    \"5\": \"مش مناسب\",\n",
+        "    \"6\": \"تعلّم\",\n",
+        "    \"7\": \"مش مناسب\",\n",
+        "    \"8\": \"قواعد\",\n",
+        "    \"9\": \"مش مناسب\",\n",
+        "    \"10\": \"قواعد\"\n",
+        "}\n",
+        "\n",
+        "\n",
+        "choices = (\"قواعد\", \"تعلّم\", \"مش مناسب\")\n",
+        "\n",
+        "assert len(answers) == 10, \"عشرة أسئلة\"\n",
+        "assert all(v in choices for v in answers.values()), \\\n",
+        "    \"كل الإجابات من الاختيارات المتاحة\"\n",
+        "\n",
+        "print(\"A1: ﻣﻤﺘﺎز\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "answers2 = {\n",
+        "    1: {\n",
+        "        \"features\": [],\n",
+        "        \"target\": \"مبلغ فاتورة الكهرباء الشهرية\",\n",
+        "        \"type\": \"regression\"\n",
+        "    },\n",
+        "    2: {\n",
+        "        \"features\": [],\n",
+        "        \"target\": \"تصنيف رسالة واردة: سبام ولا لأ\",\n",
+        "        \"type\": \"classification\"\n",
+        "    },\n",
+        "    3: {\n",
+        "        \"features\": [],\n",
+        "        \"target\": \"درجة الطالب في الاختبار النهائي\",\n",
+        "        \"type\": \"regression\"\n",
+        "    },\n",
+        "    4: {\n",
+        "        \"features\": [],\n",
+        "        \"target\": \"نوع النبات من قياسات المختبر\",\n",
+        "        \"type\": \"classification\"\n",
+        "    },\n",
+        "   5: {\n",
+        "    \"features\": [],\n",
+        "    \"target\": \"Product Price\",\n",
+        "    \"type\": \"regression\"\n",
+        "}\n",
+        "}\n",
+        "\n",
+        "for a in answers2.values():\n",
+        "    assert a[\"target\"].strip(), \"الهدف مكتوب\"\n",
+        "    assert a[\"type\"] in (\"regression\", \"classification\"), \"النوع صحيح\"\n",
+        "    assert all(a[\"features\"]), \"كلها مكتوبة\"\n",
+        "print(\"A2: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cfQ2FIFcUoFw",
+        "outputId": "ebe65177-2afd-46d9-8301-15d7c5412f55"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "A2: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# A3: Bias Risks - Delivery App\n",
+        "\n",
+        "answers3 = {\n",
+        "    \"system\": \"Delivery App\",\n",
+        "\n",
+        "    \"missing_data\": \"Delivery times and customer locations.\",\n",
+        "\n",
+        "    \"bias_example\": \"The app may have more delivery data for some areas than others.\",\n",
+        "\n",
+        "    \"impact\": \"The app may predict delivery times accurately in some areas but inaccurately in others.\"\n",
+        "}\n",
+        "\n",
+        "print(\"A3: ممتاز\")\n",
+        "for key, value in answers3.items():\n",
+        "    print(f\"{key}: {value}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Xz5PeNMaZkb-",
+        "outputId": "9143f2ef-11cd-4858-ec96-c9445781b2c6"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "A3: ممتاز\n",
+            "system: Delivery App\n",
+            "missing_data: Delivery times and customer locations.\n",
+            "bias_example: The app may have more delivery data for some areas than others.\n",
+            "impact: The app may predict delivery times accurately in some areas but inaccurately in others.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "workflow = {\n",
+        "    1: {\n",
+        "        \"step\": \"Define the problem\",\n",
+        "        \"description\": \"Predict product prices in the supermarket.\"\n",
+        "    },\n",
+        "    2: {\n",
+        "        \"step\": \"Get data\",\n",
+        "        \"description\": \"Collect available product data and their prices.\"\n",
+        "    },\n",
+        "    3: {\n",
+        "        \"step\": \"Clean\",\n",
+        "        \"description\": \"Remove duplicate records and correct invalid data.\"\n",
+        "    },\n",
+        "    4: {\n",
+        "        \"step\": \"Explore\",\n",
+        "        \"description\": \"Explore product data and understand the price distribution.\"\n",
+        "    },\n",
+        "    5: {\n",
+        "        \"step\": \"Train\",\n",
+        "        \"description\": \"Train a regression model using available product data.\"\n",
+        "    },\n",
+        "    6: {\n",
+        "        \"step\": \"Evaluate\",\n",
+        "        \"description\": \"Compare predicted prices with actual prices.\"\n",
+        "    },\n",
+        "    7: {\n",
+        "        \"step\": \"Predict\",\n",
+        "        \"description\": \"Predict prices for products using the trained model.\"\n",
+        "    }\n",
+        "}\n",
+        "print(\"ممتاز A4:\")\n",
+        "for number, details in workflow.items():\n",
+        " print(f\"{number}. {details['step']}: {details['description']}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OqGYPp5KcWdF",
+        "outputId": "60f14def-a991-4bc7-ea79-8cedd9617b61"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "ممتاز A4:\n",
+            "1. Define the problem: Predict product prices in the supermarket.\n",
+            "2. Get data: Collect available product data and their prices.\n",
+            "3. Clean: Remove duplicate records and correct invalid data.\n",
+            "4. Explore: Explore product data and understand the price distribution.\n",
+            "5. Train: Train a regression model using available product data.\n",
+            "6. Evaluate: Compare predicted prices with actual prices.\n",
+            "7. Predict: Predict prices for products using the trained model.\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
