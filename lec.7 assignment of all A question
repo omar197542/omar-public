@@ -1,0 +1,283 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNcdIZzEbqG3FXGqMj1VJnl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/omar197542/omar-public/blob/main/lec.7%20assignment%20of%20all%20A%20question\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Bm3oacFOFYI6",
+        "outputId": "a873121b-38c8-47b4-ffd6-7b29cc4398c6"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0.0\n",
+            "1.0\n",
+            "(2, 3)\n",
+            "[2.5 3.5 4.5]\n",
+            "[2. 5.]\n",
+            "A1: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ],
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "x = np.array([12.0, 18.0, 9.0, 21.0, 15.0])\n",
+        "\n",
+        "\n",
+        "norm = (x - np.mean(x)) / np.std(x)\n",
+        "\n",
+        "print(round(norm.mean(), 6))\n",
+        "print(round(norm.std(), 6))\n",
+        "\n",
+        "\n",
+        "m = np.array([[1, 2, 3],\n",
+        "              [4, 5, 6]])\n",
+        "\n",
+        "print(m.shape)\n",
+        "print(m.mean(axis=0))\n",
+        "print(m.mean(axis=1))\n",
+        "\n",
+        "\n",
+        "assert abs(norm.mean()) < 1e-9, \"المتوسط يجب أن يكون صفرًا\"\n",
+        "assert abs(norm.std() - 1.0) < 1e-9, \"الانحراف المعياري يجب أن يساوي 1\"\n",
+        "assert m.sum() == 21 and m.shape == (2, 3)\n",
+        "\n",
+        "\n",
+        "print(\"A1: ﻣﻤﺘﺎز\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import os\n",
+        "import pandas as pd\n",
+        "\n",
+        "\n",
+        "os.makedirs(\"data\", exist_ok=True)\n",
+        "\n",
+        "coffee = [\n",
+        "    {\"day\": \"Mon\", \"drink\": \"espresso\", \"cups\": 12, \"revenue\": 36.0},\n",
+        "    {\"day\": \"Mon\", \"drink\": \"latte\", \"cups\": 18, \"revenue\": 90.0},\n",
+        "    {\"day\": \"Tue\", \"drink\": \"espresso\", \"cups\": 10, \"revenue\": 30.0},\n",
+        "    {\"day\": \"Tue\", \"drink\": \"latte\", \"cups\": 22, \"revenue\": 110.0},\n",
+        "    {\"day\": \"Wed\", \"drink\": \"espresso\", \"cups\": 14, \"revenue\": 42.0},\n",
+        "    {\"day\": \"Wed\", \"drink\": \"tea\", \"cups\": 9, \"revenue\": 27.0},\n",
+        "    {\"day\": \"Thu\", \"drink\": \"latte\", \"cups\": 20, \"revenue\": 100.0},\n",
+        "    {\"day\": \"Fri\", \"drink\": \"espresso\", \"cups\": 16, \"revenue\": 48.0},\n",
+        "    {\"day\": \"Fri\", \"drink\": \"latte\", \"cups\": 25, \"revenue\": 125.0},\n",
+        "    {\"day\": \"Sat\", \"drink\": \"latte\", \"cups\": 30, \"revenue\": 150.0},\n",
+        "    {\"day\": \"Sat\", \"drink\": \"tea\", \"cups\": 12, \"revenue\": 36.0},\n",
+        "]\n",
+        "\n",
+        "pd.DataFrame(coffee).to_csv(\"data/coffee_demo.csv\", index=False)\n",
+        "\n",
+        "\n",
+        "df = pd.read_csv(\"data/coffee_demo.csv\")\n",
+        "\n",
+        "\n",
+        "print(\"DataFrame shape:\", df.shape)\n",
+        "print(\"Number of unique drinks:\", df[\"drink\"].nunique())\n",
+        "print(\"Average cups:\", round(df[\"cups\"].mean(), 1))\n",
+        "print(\"Total revenue:\", df[\"revenue\"].sum())\n",
+        "\n",
+        "\n",
+        "best_day = df.groupby(\"day\")[\"revenue\"].sum().idxmax()\n",
+        "print(\"Best day:\", best_day)\n",
+        "\n",
+        "assert df.shape == (11, 4), \"عدد الصفوف والأعمدة غير صحيح\"\n",
+        "assert df[\"drink\"].nunique() == 3, \"عدد أنواع المشروبات غير صحيح\"\n",
+        "assert round(df[\"cups\"].mean(), 1) == 17.1, \"متوسط الأكواب غير صحيح\"\n",
+        "assert df[\"revenue\"].sum() == 794.0, \"إجمالي الإيرادات غير صحيح\"\n",
+        "assert best_day == \"Sat\", \"اليوم صاحب أعلى إيرادات غير صحيح\"\n",
+        "\n",
+        "print(\"A2: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ymNq6kyfKfqH",
+        "outputId": "8fecee2d-e15b-4212-e5bf-a43f09828d06"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DataFrame shape: (11, 4)\n",
+            "Number of unique drinks: 3\n",
+            "Average cups: 17.1\n",
+            "Total revenue: 794.0\n",
+            "Best day: Sat\n",
+            "A2: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "fri = df[df[\"day\"] == \"Fri\"].sort_values(\"revenue\", ascending=False)\n",
+        "print(fri[\"drink\"].iloc[0])\n",
+        "\n",
+        "assert list(fri[\"revenue\"]) == [125.0, 48.0], \"إيراد الجمعة\"\n",
+        "\n",
+        "top = df.sort_values(\"revenue\", ascending=False).head(1)\n",
+        "assert top[\"day\"].iloc[0] == \"Sat\", \"أعلى صف السبت\"\n",
+        "\n",
+        "print(\"A3: ممتاز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YDmFeNHZMgs9",
+        "outputId": "7a9df5d1-900e-4ad7-e91f-24205448d1b8"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "latte\n",
+            "A3: ممتاز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "by_day = df.groupby(\"day\")[\"revenue\"].sum().sort_values(ascending=False)\n",
+        "\n",
+        "by_drink = df.groupby(\"drink\")[\"cups\"].mean()\n",
+        "\n",
+        "\n",
+        "print(by_day.idxmax(), by_day.max())\n",
+        "\n",
+        "print(round(by_drink[\"latte\"], 1))\n",
+        "\n",
+        "\n",
+        "assert by_day.idxmax() == \"Sat\" and by_day.max() == 186.0\n",
+        "assert round(by_drink[\"latte\"], 1) == 23.0, \"خطأ في اللاتيه\"\n",
+        "assert round(by_drink[\"espresso\"], 1) == 13.0, \"خطأ في الإسبريسو\"\n",
+        "\n",
+        "print(\"A4: ممتاز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4gQr0Er6Oyet",
+        "outputId": "1e056857-65ed-4cb4-d023-aa04c95f6527"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sat 186.0\n",
+            "23.0\n",
+            "A4: ممتاز\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "messy = [\n",
+        "    {\"date\": \"2026-01-01\", \"category\": \"food\", \"amount\": 85.5},\n",
+        "    {\"date\": \"2026-01-02\", \"category\": None, \"amount\": 40.0},\n",
+        "    {\"date\": \"2026-01-02\", \"category\": None, \"amount\": 40.0},\n",
+        "    {\"date\": \"2026-01-03\", \"category\": \"drink\", \"amount\": None},\n",
+        "    {\"date\": \"2026-01-04\", \"category\": \"food\", \"amount\": 120.0},\n",
+        "]\n",
+        "\n",
+        "pd.DataFrame(messy).to_csv(\"data/messy_demo.csv\", index=False)\n",
+        "\n",
+        "raw = pd.read_csv(\"data/messy_demo.csv\")\n",
+        "\n",
+        "\n",
+        "print(raw.shape[0], raw[\"amount\"].sum())\n",
+        "\n",
+        "\n",
+        "dedup = raw.drop_duplicates()\n",
+        "print(len(dedup))\n",
+        "\n",
+        "clean = dedup.dropna()\n",
+        "\n",
+        "print(len(clean))\n",
+        "\n",
+        "print(clean[\"amount\"].astype(float).sum())\n",
+        "\n",
+        "\n",
+        "assert raw.shape[0] == 5\n",
+        "assert len(dedup) == 4\n",
+        "assert len(clean) == 2\n",
+        "assert clean[\"amount\"].sum() == 205.5\n",
+        "\n",
+        "print(\"A5: ﻣﻤﺘﺎز\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FaVVBl4cPG7O",
+        "outputId": "a0513fa0-e0c3-4db1-e414-b8eddc1e4537"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5 285.5\n",
+            "4\n",
+            "2\n",
+            "205.5\n",
+            "A5: ﻣﻤﺘﺎز\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
